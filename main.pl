@@ -2,6 +2,7 @@
 main :-
   write('Which programming language should I learn first?'),
   nl,
+  reset_answers,
   find_language(Language),
   write(Language).
 
@@ -12,6 +13,16 @@ find_language(Language) :-
 
 % Store user answers to be able to track his progress
 :- dynamic(answers/2).
+
+
+% Clear stored user progress
+% reset_answers must always return true; because retract can return either true
+% or false, we fail the first and succeed with the second.
+reset_answers :-
+  write('Resetting progress...'),
+  retract(answers(_, _)),
+  fail.
+reset_answers.
 
 
 % Rules for the knowledge base
