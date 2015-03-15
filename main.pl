@@ -71,16 +71,19 @@ language(objectivec) :-
 why(Answer) :-
   answers(why, Answer).
 why(Answer) :-
+  \+ answers(why, _),
   ask(why, Answer, [for_my_kids, i_dont_know, make_money]).
 
 which_platform(Answer) :-
   answers(which_platform, Answer).
 which_platform(Answer) :-
+  \+ answers(which_platform, _),
   ask(which_platform, Answer, [doesn_t_matter, gaming, mobile, facebook, google, windows, apple]).
 
 which_mobile_os(Answer) :-
   answers(which_mobile_os, Answer).
 which_mobile_os(Answer) :-
+  \+ answers(which_mobile_os, _),
   ask(which_mobile_os, Answer, [ios, android]).
 
 
@@ -88,5 +91,6 @@ which_mobile_os(Answer) :-
 ask(Question, Answer, Choices) :-
   write(Choices),
   nl,
-  read(Answer),
-  asserta(answers(Question, Answer)).
+  read(Response),
+  asserta(answers(Question, Response)),
+  Response = Answer.
