@@ -66,6 +66,46 @@ language(objectivec) :-
   why(make_money),
   which_platform(apple).
 
+language(javascript) :-
+  why(make_money),
+  which_platform(web),
+  web(front_end).
+
+language(csharp) :-
+  why(make_money),
+  which_platform(web),
+  web(back_end),
+  want_to_work_for(corporate),
+  think_about_microsoft(im_a_fan).
+
+language(java) :-
+  why(make_money),
+  which_platform(web),
+  web(back_end),
+  want_to_work_for(corporate),
+  think_about_microsoft(not_bad).
+
+language(java) :-
+  why(make_money),
+  which_platform(web),
+  web(back_end),
+  want_to_work_for(corporate),
+  think_about_microsoft(suck).
+
+language(csharp) :-
+  why(make_money),
+  which_platform(enterprise),
+  think_about_microsoft(im_a_fan).
+
+language(java) :-
+  why(make_money),
+  want_to_work_for(enterprise),
+  think_about_microsoft(not_bad).
+
+language(java) :-
+  why(make_money),
+  want_to_work_for(enterprise),
+  think_about_microsoft(suck).
 
 % Assigns an answer to questions from the knowledge base
 why(Answer) :-
@@ -78,13 +118,32 @@ which_platform(Answer) :-
   answers(which_platform, Answer).
 which_platform(Answer) :-
   \+ answers(which_platform, _),
-  ask(which_platform, Answer, [doesn_t_matter, gaming, mobile, facebook, google, windows, apple]).
+  ask(which_platform, Answer, [doesn_t_matter, gaming, mobile, facebook, google, windows, apple, web, enterprise]).
 
 which_mobile_os(Answer) :-
   answers(which_mobile_os, Answer).
 which_mobile_os(Answer) :-
   \+ answers(which_mobile_os, _),
   ask(which_mobile_os, Answer, [ios, android]).
+
+web(Answer) :-
+  answers(web, Answer).
+which_mobile_os(Answer) :-
+  \+ answers(web, _),
+  ask(web, Answer, [front_end, back_end]).
+
+want_to_work_for(Answer) :-
+  answers(want_to_work_for, Answer).
+want_to_work_for(Answer) :-
+  \+ answers(want_to_work_for, _),
+  ask(want_to_work_for, Answer, [startup, corporate]).
+
+think_about_microsoft(Answer) :-
+  answers(think_about_microsoft, Answer).
+think_about_microsoft(Answer) :-
+  \+ answers(think_about_microsoft, _),
+  ask(think_about_microsoft, Answer, [im_a_fan, not_bad, suck]).
+
 
 
 % Asks the Question to the user and saves the Answer
