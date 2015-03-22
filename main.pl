@@ -92,6 +92,37 @@ language(java) :-
   want_to_work_for(corporate),
   think_about_microsoft(suck).
 
+language(javascript) :-
+  why(make_money),
+  which_platform(web),
+  web(back_end),
+  want_to_work_for(startup),
+  try_something_new(yes).
+
+language(python) :-
+  why(make_money),
+  which_platform(web),
+  web(back_end),
+  want_to_work_for(startup),
+  try_something_new(no),
+  favourite_toy(lego).
+
+language(ruby) :-
+  why(make_money),
+  which_platform(web),
+  web(back_end),
+  want_to_work_for(startup),
+  try_something_new(no),
+  favourite_toy(play_doh).
+
+language(php) :-
+  why(make_money),
+  which_platform(web),
+  web(back_end),
+  want_to_work_for(startup),
+  try_something_new(no),
+  favourite_toy(old_ugly).
+
 language(csharp) :-
   why(make_money),
   which_platform(enterprise),
@@ -106,6 +137,87 @@ language(java) :-
   why(make_money),
   want_to_work_for(enterprise),
   think_about_microsoft(suck).
+
+language(python) :-
+  why(just_for_fun),
+  have_an_idea(no),
+  prefer_to_learn(easy_way).
+
+language(python) :-
+  why(just_for_fun),
+  have_an_idea(no),
+  prefer_to_learn(best_way).
+
+language(java) :-
+  why(just_for_fun),
+  have_an_idea(no),
+  prefer_to_learn(harder_way),
+  car(auto).
+
+language(c) :-
+  why(just_for_fun),
+  have_an_idea(no),
+  prefer_to_learn(harder_way),
+  car(manual).
+
+language(cpp) :-
+  why(just_for_fun),
+  have_an_idea(no),
+  prefer_to_learn(hardest_way).
+
+language(python) :-
+  why(im_interested),
+  have_an_idea(no),
+  prefer_to_learn(easy_way).
+
+language(python) :-
+  why(im_interested),
+  have_an_idea(no),
+  prefer_to_learn(best_way).
+
+language(java) :-
+  why(im_interested),
+  have_an_idea(no),
+  prefer_to_learn(harder_way),
+  car(auto).
+
+language(c) :-
+  why(im_interested),
+  have_an_idea(no),
+  prefer_to_learn(harder_way),
+  car(manual).
+
+language(cpp) :-
+  why(im_interested),
+  have_an_idea(no),
+  prefer_to_learn(hardest_way).
+
+language(python) :-
+  why(improve_myself),
+  have_an_idea(no),
+  prefer_to_learn(easy_way).
+
+language(python) :-
+  why(improve_myself),
+  have_an_idea(no),
+  prefer_to_learn(best_way).
+
+language(java) :-
+  why(improve_myself),
+  have_an_idea(no),
+  prefer_to_learn(harder_way),
+  car(auto).
+
+language(c) :-
+  why(improve_myself),
+  have_an_idea(no),
+  prefer_to_learn(harder_way),
+  car(manual).
+
+language(cpp) :-
+  why(improve_myself),
+  have_an_idea(no),
+  prefer_to_learn(hardest_way).
 
 % Assigns an answer to questions from the knowledge base
 why(Answer) :-
@@ -144,6 +256,35 @@ think_about_microsoft(Answer) :-
   \+ answers(think_about_microsoft, _),
   ask(think_about_microsoft, Answer, [im_a_fan, not_bad, suck]).
 
+try_something_new(Answer) :-
+  answers(try_something_new, Answer).
+try_something_new(Answer) :-
+  \+ answers(try_something_new, _),
+  ask(try_something_new, Answer, [yes, no]).
+
+favourite_toy(Answer) :-
+  answers(favourite_toy, Answer).
+favourite_toy(Answer) :-
+  \+ answers(favourite_toy, _),
+  ask(favourite_toy, Answer, [lego, play_doh, old_ugly]).
+
+have_an_idea(Answer) :-
+  answers(have_an_idea, Answer).
+have_an_idea(Answer) :-
+  \+ answers(have_an_idea, _),
+  ask(have_an_idea, Answer, [no, yes]).
+
+prefer_to_learn(Answer) :-
+  answers(prefer_to_learn, Answer).
+prefer_to_learn(Answer) :-
+  \+ answers(prefer_to_learn, _),
+  ask(prefer_to_learn, Answer, [easy_way, best_way, harder_way, hardest_way]).
+
+car(Answer) :-
+  answers(car, Answer).
+  car(Answer) :-
+  \+ answers(car, _),
+  ask(car, Answer, [auto, manual]).
 
 
 % Asks the Question to the user and saves the Answer
