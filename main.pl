@@ -308,10 +308,20 @@ answers([First|Rest], Index) :-
   answers(Rest, NextIndex).
 
 
+% Parses an Index and returns a Response representing the "Indexth" element in
+% Choices (the [First|Rest] list)
+parse(0, [First|_], First).
+parse(Index, [First|Rest], Response) :-
+  Index > 0,
+  NextIndex is Index - 1,
+  parse(NextIndex, Rest, Response).
+
+
 % Asks the Question to the user and saves the Answer
 ask(Question, Answer, Choices) :-
   question(Question),
-  read(Response),
   answers(Choices, 0),
+  read(Index),
+  parse(Index, Choices, Response),
   asserta(progress(Question, Response)),
   Response = Answer.
