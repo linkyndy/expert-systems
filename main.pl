@@ -204,12 +204,13 @@ language(cpp) :-
   why(improve_myself),
   prefer_to_learn(hardest_way).
 
+
 % Assigns an answer to questions from the knowledge base
 why(Answer) :-
   answers(why, Answer).
 why(Answer) :-
   \+ answers(why, _),
-  ask(why, Answer, [for_my_kids, i_dont_know, make_money]).
+  ask(why, Answer, [for_my_kids, i_dont_know, make_money, just_for_fun, im_interested, improve_myself]).
 
 which_platform(Answer) :-
   answers(which_platform, Answer).
@@ -225,7 +226,7 @@ which_mobile_os(Answer) :-
 
 web(Answer) :-
   answers(web, Answer).
-which_mobile_os(Answer) :-
+web(Answer) :-
   \+ answers(web, _),
   ask(web, Answer, [front_end, back_end]).
 
@@ -261,7 +262,7 @@ prefer_to_learn(Answer) :-
 
 car(Answer) :-
   answers(car, Answer).
-  car(Answer) :-
+car(Answer) :-
   \+ answers(car, _),
   ask(car, Answer, [auto, manual]).
 
