@@ -299,11 +299,19 @@ car(Answer) :-
   ask(car, Answer, [auto, manual]).
 
 
+% Outputs a nicely formatted list of answers
+% [First|Rest] is the Choices list, Index is the index of First in Choices
+answers([], _).
+answers([First|Rest], Index) :-
+  write(Index), write(First), nl,
+  NextIndex is Index + 1,
+  answers(Rest, NextIndex).
+
+
 % Asks the Question to the user and saves the Answer
 ask(Question, Answer, Choices) :-
   question(Question),
-  write(Choices),
-  nl,
   read(Response),
+  answers(Choices, 0),
   asserta(progress(Question, Response)),
   Response = Answer.
