@@ -140,83 +140,68 @@ language(java) :-
 
 language(python) :-
   why(just_for_fun),
-  have_an_idea(no),
   prefer_to_learn(easy_way).
 
 language(python) :-
   why(just_for_fun),
-  have_an_idea(no),
   prefer_to_learn(best_way).
 
 language(java) :-
   why(just_for_fun),
-  have_an_idea(no),
   prefer_to_learn(harder_way),
   car(auto).
 
 language(c) :-
   why(just_for_fun),
-  have_an_idea(no),
   prefer_to_learn(harder_way),
   car(manual).
 
 language(cpp) :-
   why(just_for_fun),
-  have_an_idea(no),
   prefer_to_learn(hardest_way).
 
 language(python) :-
   why(im_interested),
-  have_an_idea(no),
   prefer_to_learn(easy_way).
 
 language(python) :-
   why(im_interested),
-  have_an_idea(no),
   prefer_to_learn(best_way).
 
 language(java) :-
   why(im_interested),
-  have_an_idea(no),
   prefer_to_learn(harder_way),
   car(auto).
 
 language(c) :-
   why(im_interested),
-  have_an_idea(no),
   prefer_to_learn(harder_way),
   car(manual).
 
 language(cpp) :-
   why(im_interested),
-  have_an_idea(no),
   prefer_to_learn(hardest_way).
 
 language(python) :-
   why(improve_myself),
-  have_an_idea(no),
   prefer_to_learn(easy_way).
 
 language(python) :-
   why(improve_myself),
-  have_an_idea(no),
   prefer_to_learn(best_way).
 
 language(java) :-
   why(improve_myself),
-  have_an_idea(no),
   prefer_to_learn(harder_way),
   car(auto).
 
 language(c) :-
   why(improve_myself),
-  have_an_idea(no),
   prefer_to_learn(harder_way),
   car(manual).
 
 language(cpp) :-
   why(improve_myself),
-  have_an_idea(no),
   prefer_to_learn(hardest_way).
 
 % Assigns an answer to questions from the knowledge base
@@ -267,12 +252,6 @@ favourite_toy(Answer) :-
 favourite_toy(Answer) :-
   \+ answers(favourite_toy, _),
   ask(favourite_toy, Answer, [lego, play_doh, old_ugly]).
-
-have_an_idea(Answer) :-
-  answers(have_an_idea, Answer).
-have_an_idea(Answer) :-
-  \+ answers(have_an_idea, _),
-  ask(have_an_idea, Answer, [no, yes]).
 
 prefer_to_learn(Answer) :-
   answers(prefer_to_learn, Answer).
