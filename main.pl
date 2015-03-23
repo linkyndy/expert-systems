@@ -60,7 +60,7 @@ language(python) :-
 
 language(csharp) :-
   why(make_money),
-  which_platform(windows).
+  which_platform(microsoft).
 
 language(objectivec) :-
   why(make_money),
@@ -271,8 +271,8 @@ answer(facebook) :-
 answer(google) :-
   write('Google').
 
-answer(windows) :-
-  write('Windows').
+answer(microsoft) :-
+  write('Microsoft').
 
 answer(apple) :-
   write('Apple').
@@ -402,7 +402,7 @@ which_platform(Answer) :-
   progress(which_platform, Answer).
 which_platform(Answer) :-
   \+ progress(which_platform, _),
-  ask(which_platform, Answer, [doesn_t_matter, gaming, mobile, facebook, google, windows, apple, web, enterprise]).
+  ask(which_platform, Answer, [doesn_t_matter, gaming, mobile, facebook, google, microsoft, apple, web, enterprise]).
 
 which_mobile_os(Answer) :-
   progress(which_mobile_os, Answer).
