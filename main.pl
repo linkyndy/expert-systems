@@ -1,10 +1,14 @@
 % Expert system should be started from here
 main :-
-  write('Which programming language should I learn first?'),
-  nl,
+  intro,
   reset_answers,
   find_language(Language),
   describe(Language), nl.
+
+
+intro :-
+  write('Which programming language should I learn first?'), nl,
+  write('To answer, input the number shown next to each answer, followed by a dot (.)'), nl, nl.
 
 
 find_language(Language) :-
@@ -19,7 +23,6 @@ find_language(Language) :-
 % reset_answers must always return true; because retract can return either true
 % or false, we fail the first and succeed with the second.
 reset_answers :-
-  write('Resetting progress...'),
   retract(progress(_, _)),
   fail.
 reset_answers.
